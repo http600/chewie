@@ -22,12 +22,14 @@ class CupertinoControls extends StatefulWidget {
     required this.backgroundColor,
     required this.iconColor,
     this.showPlayButton = true,
+    this.showSubtitle = false,
     super.key,
   });
 
   final Color backgroundColor;
   final Color iconColor;
   final bool showPlayButton;
+  final bool showSubtitle;
 
   @override
   State<StatefulWidget> createState() {
@@ -639,7 +641,7 @@ class _CupertinoControlsState extends State<CupertinoControls>
   }
 
   Future<void> _initialize() async {
-    _subtitleOn = chewieController.subtitle?.isNotEmpty ?? false;
+    _subtitleOn = widget.showSubtitle && (chewieController.subtitle?.isNotEmpty ?? false);
     controller.addListener(_updateState);
 
     _updateState();

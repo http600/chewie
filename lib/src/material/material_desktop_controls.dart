@@ -18,10 +18,12 @@ import 'package:video_player/video_player.dart';
 class MaterialDesktopControls extends StatefulWidget {
   const MaterialDesktopControls({
     this.showPlayButton = true,
+    this.showSubtitle = false,
     super.key,
   });
 
   final bool showPlayButton;
+  final bool showSubtitle;
 
   @override
   State<StatefulWidget> createState() {
@@ -464,7 +466,7 @@ class _MaterialDesktopControlsState extends State<MaterialDesktopControls>
   }
 
   Future<void> _initialize() async {
-    _subtitleOn = chewieController.subtitle?.isNotEmpty ?? false;
+    _subtitleOn = widget.showSubtitle && (chewieController.subtitle?.isNotEmpty ?? false);
     controller.addListener(_updateState);
 
     _updateState();
