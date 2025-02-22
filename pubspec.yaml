@@ -15,6 +15,13 @@ dependencies:
   video_player: ^2.9.1
   wakelock_plus: ^1.2.8
 
+dependency_overrides:
+  video_player:
+    git:
+      url: git@github.com:http600/packages.git
+      path: packages/video_player/video_player
+      ref: work
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
